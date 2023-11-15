@@ -1,0 +1,368 @@
+https://www.programiz.com/java-programming/online-compiler/
+
+10. 객체지향 언어의 이해
+
+// [JAVA]*********************************************************************************
+해보기 10-1. 두 개의 정수를 더하여 합을 리턴하는 메소드를 만들어 보세요.
+메소드 이름 : sumInt
+[10-3 00:34]
+// ***************************************************************************************
+public static int sumInt(int n, int m){
+    return n + m;
+}
+
+public static void main(String[] args){
+    int i = 100;
+    int val;
+    val = sumInt(i, 100);
+    
+    System.out.printLn(val);
+}
+// ---------------------------------------------------------------------------------------
+200
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-2. 객체지향언어로 변수, 상수를 사용해 보세요
+원의 넓이 구하기
+- class 명 : Test2
+- final double PI = 3.14
+double radius, area 사용
+[10-3 04:54]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        final double PI = 3.14;
+        double radius = 5.1;
+        double area = radius * radius * PI;
+        
+        System.out.println("area = " + area);
+    }
+}
+// ---------------------------------------------------------------------------------------
+area = 81.76139999999999
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-3. 조건문을 사용하여 프로그램을 구현해 봅시다.
+절대값 구하기
+- class 명 : Test3
+- int형 a=1, b=2
+- cond ? stat1 : stat2; 사용
+[10-3 05:57]
+// ***************************************************************************************
+public static void main(String[] args){
+    int a = 1, b = 2;
+    
+    System.out.println("diff of a and b : " + ( (a>b) ? (a-b) : (b-a) ));
+}
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-4. 조건문을 사용하여 프로그램을 구현해 봅시다.
+정수 score에 대하여 다음과 같이 처리하기
+- class명 : Test4
+- 70점 이상이면 "pass"
+[10-3 07:37]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("score : ");
+        int score = scanner.nextInt();
+        if( score >= 70 ){
+            System.out.println("pass");
+        }
+        
+        scanner.close();
+    }
+}
+// ---------------------------------------------------------------------------------------
+score : 100
+pass
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-5. 조건문을 사용하여 프로그램을 구현해 봅시다.
+정수 number에 대하여 다음과 같이 처리하기
+- class명 : Test5
+- 2의 배수이면 'even number', 그렇지 않으면 'odd number'
+[10-3 09:32]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner num = new Scanner(System.in);
+        
+        System.out.print("number : ");
+        int number = num.nextInt();
+        if( number % 2 == 0 ){
+            System.out.println("even number");
+        } else {
+            System.out.println("odd number");
+        }
+        
+        scanner.close();
+    }
+}
+// ---------------------------------------------------------------------------------------
+number : 99
+odd number
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-6. 조건문을 사용하여 프로그램을 구현해 봅시다.
+정수 score에 대하여 다음과 같이 처리하기
+- class 명 : Test6
+- 90점 이상이면 'A' 80점 이상이면 'B' 그 외는 'F'로 출력
+[10-3 11:48]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        char grade;
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("enter your score (0~100) : ");
+        int score = num.nextInt();
+        if( score >= 90 ){
+            grade = 'A';
+        } else if ( score >= 80 ) {
+            grade = 'B';
+        } else {
+            grade = 'F';
+        }
+        
+        System.out.println("grade : " + grade);
+        scanner.close();
+    }
+}
+// ---------------------------------------------------------------------------------------
+enter your score (0~100) : 100
+grade : A
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-7. 다음 조건에 대하여 반복문을 사용해 봅시다.
+- 1 ~ 10까지의 합 구하기
+- 정수 i, sum 변수로 사용하기
+- for문 사용하기
+[10-3 13:45]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        int sum = 0;
+        for(int i=1; i<10; i++){    // 1~10 까지 반복
+            sum += i;
+        }
+        
+        System.out.println("sum = " + sum);
+    }
+}
+// ---------------------------------------------------------------------------------------
+sum = 55
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-8. 다음 조건에 대하여 반복문을 사용해 봅시다.
+- 입력받은 정수들의 합과 평균 구하기
+- 만일 -1을 입력하면 반복 종료 후 -1은 제외하고 평균 구하기
+- 변수 : 정수 sum, count, n / double avg 사용하기
+- while문 사용하기
+[10-3 14:38]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        int sum = 0;
+        int count = 0;
+        
+        Scanner = scanner = new Scanner(System.in);
+        System.out.println("enter your number (if you want end. enter -1)");
+        int n = scanner.nextInt();
+        
+        while( n != - 1 ){
+            sum += n;
+            count++;
+            n = scanner.nextInt();  // 정수입력
+        }
+        
+        System.out.println("sum = " + sum + "avg = " + sum/count);
+    }
+}
+// ---------------------------------------------------------------------------------------
+enter your number (if you want end. enter -1)
+100
+200
+300
+400
+500
+-1
+sum = 1500 avg = 300
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-9. 다음 조건에 대하여 반복문을 사용해 봅시다.
+- 2~9의 구구단 출력하기
+- 변수 : 정수 i,j
+- 이중 for문 사용하기
+[10-3 17:16]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        for(int i=2; i<10; i++){
+            for(int j=1; j<10; j++){
+                System.out.println(i+"*"+j+"="+i*j);
+                System.out.println('\t');
+            }
+            System.out.println();
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------
+2*1=2   2*2=4   2*3=6   2*4=8    2*5=10  2*6=12  2*7=14  2*8=16  2*9=18
+3*1=3   3*2=6   3*3=9   3*4=12   3*5=15  3*6=18  3*7=21  3*8=24  3*9=27
+.
+.
+.
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-10. 다음 배열 객체를 선언하고 생성해 봅시다.
+- 크기가 5인 정수형 배열 test5
+- 배열의 값 중 가장 큰 값 구하기
+- 변수 : 정수 max
+- for문과 if문 사용하기
+[10-3 19:42]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner a = new Scanner(System.in);
+        int test5[] = new int[5];   // 배열 객체를 선언하고 생성
+        
+        int max = 0, i;
+        System.out.println("5개의 정수 입력");
+        
+        for(i=0; i<5; i++){
+            test5[i] = a.nextInt();
+            if( test5[i] > max ){
+                max = test5[i];
+            }
+            System.out.print("MAX:" + max);
+            a.close();
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------
+5개의 정수 입력
+100
+200
+1000
+500
+99
+MAX:1000
+
+
+
+
+
+// [JAVA]*********************************************************************************
+해보기 10-11. 나누는 수가 0일 경우에 대한 예외처리문을 작성해 보세요.
+- 변수 : 정수 a,b (a는 나누어 지는 수, b는 나누는 수)
+- 나누는 수가 0이면 반복문 탈출
+- try = catch = finally 사용
+- while문 사용
+[10-3 22:44]
+// ***************************************************************************************
+package test2;
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        
+        while( true ){
+            System.out.print("분모 : ");
+            int a = scanner.nextInt();
+            System.out.print("분자 : ");
+            int b = scanner.nextInt();
+            
+            true {
+                System.out.println(a/b);
+                break;
+            }
+            catch (ArithmeticException e) {
+                System.out.println("error");
+                break;
+            }
+        }
+        Scanner.close();
+        
+    }
+}
+// ---------------------------------------------------------------------------------------
+분모 : 100
+분자 : 200
+0
+// ---------------------------------------------------------------------------------------
+분모 : 100
+분자 : 0
+error
