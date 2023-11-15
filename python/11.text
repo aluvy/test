@@ -1,0 +1,419 @@
+https://replit.com/@oookwork/BlandSnappyNormalform#main.py
+
+11. 파이썬을 이용한 시각화 2
+
+# [Python]*******************************************************************************
+해보기 11-1. 다음의 코드를 작성하고 실행해 봅시다.
+[11-2 14:17]
+# ***************************************************************************************
+import pandas as pd
+
+df = pd.DataFrame({'name':['a1','a2','a3','a4'], 'score1':[99,100,99,88]})
+print(df)
+df.loc[4] = ['a5', 100]
+print(df)
+df2 = df.drop(index=[0,1])
+print(df2)
+# ---------------------------------------------------------------------------------------
+  name  score1
+0   a1      99
+1   a2     100
+2   a3      99
+3   a4      88
+  name  score1
+0   a1      99
+1   a2     100
+2   a3      99
+3   a4      88
+4   a5     100
+  name  score1
+2   a3      99
+3   a4      88
+4   a5     100
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-3. 다음의 코드를 작성하고 실행해 봅시다.
+- jupyter notebook을 이용해 봅시다.
+[11-2 15:02]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+df1 = df.copy()
+df1['new'] = '0'
+df1.head()
+print(df1)
+# ---------------------------------------------------------------------------------------
+     survived  pclass     sex   age  sibsp  ...  deck  embark_town alive  alone new
+0           0       3    male  22.0      1  ...   NaN  Southampton    no  False   0
+1           1       1  female  38.0      1  ...     C    Cherbourg   yes  False   0
+2           1       3  female  26.0      0  ...   NaN  Southampton   yes   True   0
+3           1       1  female  35.0      1  ...     C  Southampton   yes  False   0
+4           0       3    male  35.0      0  ...   NaN  Southampton    no   True   0
+..        ...     ...     ...   ...    ...  ...   ...          ...   ...    ...  ..
+886         0       2    male  27.0      0  ...   NaN  Southampton    no   True   0
+887         1       1  female  19.0      0  ...     B  Southampton   yes   True   0
+888         0       3  female   NaN      1  ...   NaN  Southampton    no  False   0
+889         1       1    male  26.0      0  ...     C    Cherbourg   yes   True   0
+890         0       3    male  32.0      0  ...   NaN   Queenstown    no   True   0
+
+[891 rows x 16 columns]
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-4. 다음의 코드를 작성하고 실행해 봅시다.
+- jupyter notebook을 이용해 봅시다. (seaborn의 titanic 데이터셋 이용)
+[11-2 15:46]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+df1 = df.copy()
+df.drop(1)  # index로 삭제
+df1.drop(df1.index[0:10])  # 여러 개 인덱스로 삭제
+df1.drop(df1.index[[1,3,5,7,9]])
+
+print(df1)
+# ---------------------------------------------------------------------------------------
+     survived  pclass     sex   age  sibsp  ...  adult_male  deck  embark_town alive  alone
+0           0       3    male  22.0      1  ...        True   NaN  Southampton    no  False
+1           1       1  female  38.0      1  ...       False     C    Cherbourg   yes  False
+2           1       3  female  26.0      0  ...       False   NaN  Southampton   yes   True
+3           1       1  female  35.0      1  ...       False     C  Southampton   yes  False
+4           0       3    male  35.0      0  ...        True   NaN  Southampton    no   True
+..        ...     ...     ...   ...    ...  ...         ...   ...          ...   ...    ...
+886         0       2    male  27.0      0  ...        True   NaN  Southampton    no   True
+887         1       1  female  19.0      0  ...       False     B  Southampton   yes   True
+888         0       3  female   NaN      1  ...       False   NaN  Southampton    no  False
+889         1       1    male  26.0      0  ...        True     C    Cherbourg   yes   True
+890         0       3    male  32.0      0  ...        True   NaN   Queenstown    no   True
+
+[891 rows x 15 columns]
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-5. 다음의 코드를 작성하고 실행해 봅시다.
+- jupyter notebook을 이용해 봅시다. (seaborn의 titanic 데이터셋 이용)
+[11-2 17:11]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+df1 = df.copy()
+
+# 열삭제 시 axis=1 반드시 붙여야 함
+df1.drop('class', axis=1).head()
+df1.drop(['who', 'deck', 'alive'], axis=1)
+
+# 삭제된 내용을 원본에 적용 시
+df1.drop(['who', 'deck', 'alive'], axis=1, inplace=True)
+
+print(df1)
+# ---------------------------------------------------------------------------------------
+     survived  pclass     sex   age  ...   class  adult_male  embark_town  alone
+0           0       3    male  22.0  ...   Third        True  Southampton  False
+1           1       1  female  38.0  ...   First       False    Cherbourg  False
+2           1       3  female  26.0  ...   Third       False  Southampton   True
+3           1       1  female  35.0  ...   First       False  Southampton  False
+4           0       3    male  35.0  ...   Third        True  Southampton   True
+..        ...     ...     ...   ...  ...     ...         ...          ...    ...
+886         0       2    male  27.0  ...  Second        True  Southampton   True
+887         1       1  female  19.0  ...   First       False  Southampton   True
+888         0       3  female   NaN  ...   Third       False  Southampton  False
+889         1       1    male  26.0  ...   First        True    Cherbourg   True
+890         0       3    male  32.0  ...   Third        True   Queenstown   True
+
+[891 rows x 12 columns]
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-6. 다음의 코드를 작성하고 실행해 봅시다.
+- jupyter notebook을 이용해 봅시다. (seaborn의 titanic 데이터셋 이용)
+[11-2 20:03]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+df1 = df.copy()
+
+# 열과 열 사이 연결
+df1['family'] = df1['sibsp'] + df1['parch']  # 1,2등으로 표현
+df1['gender'] = df1['who'] + '-' + df1['sex']  # woman femail 등으로 표현
+
+# round : 반올림
+df1['round'] = round(df1['fare']/df1['age'], 2)  # 소수 둘째자리
+
+print(df1)
+# ---------------------------------------------------------------------------------------
+     survived  pclass     sex   age  sibsp  ...  alive  alone family        gender round
+0           0       3    male  22.0      1  ...     no  False      1      man-male  0.33
+1           1       1  female  38.0      1  ...    yes  False      1  woman-female  1.88
+2           1       3  female  26.0      0  ...    yes   True      0  woman-female  0.30
+3           1       1  female  35.0      1  ...    yes  False      1  woman-female  1.52
+4           0       3    male  35.0      0  ...     no   True      0      man-male  0.23
+..        ...     ...     ...   ...    ...  ...    ...    ...    ...           ...   ...
+886         0       2    male  27.0      0  ...     no   True      0      man-male  0.48
+887         1       1  female  19.0      0  ...    yes   True      0  woman-female  1.58
+888         0       3  female   NaN      1  ...     no  False      3  woman-female   NaN
+889         1       1    male  26.0      0  ...    yes   True      0      man-male  1.15
+890         0       3    male  32.0      0  ...     no   True      0      man-male  0.24
+
+[891 rows x 18 columns]
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-7. 다음의 코드를 살펴봅시다
+[11-3 16:57]
+# ***************************************************************************************
+import datetime as dt
+
+t1 = dt.datetime.now()
+t2 = dt.datetime.today()
+
+print(t1)
+print(t2)  # 동일
+# ---------------------------------------------------------------------------------------
+2023-11-15 07:36:29.274503
+2023-11-15 07:36:29.274516
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-8. 다음의 코드를 살펴봅시다
+[11-3 18:00]
+# ***************************************************************************************
+import datetime as dt
+
+x = dt.datetime.now()
+print(x)
+print(x.year)
+print(x.hour)
+print(x.weekday())
+
+print(x.strftime("%A %d. %B %Y"))
+# ---------------------------------------------------------------------------------------
+2023-11-15 07:38:08.279758
+2023
+7
+2
+Wednesday 15. November 2023
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-9. 다음의 코드를 살펴봅시다
+[11-3 19:19]
+# ***************************************************************************************
+import datetime as dt
+
+t1 = dt.datetime.now()
+print(t1.strftime('%Y %y'))
+# ---------------------------------------------------------------------------------------
+2023 23
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-10. 다음의 코드를 살펴봅시다
+[11-3 19:43]
+# ***************************************************************************************
+import pandas as pd
+import datetime
+print(pd.Series.dt.yar)
+# ---------------------------------------------------------------------------------------
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-11. 다음의 코드를 살펴봅시다
+[11-3 20:17]
+# ***************************************************************************************
+import datetime
+t1 = datetime.date(year=2030, month=1, day=1)
+t2 = datetime.date(year=2040, month=12, day=25)
+t3 = t2 - t1
+
+print(t3)
+print(type(t1))
+print(type(t2))
+print(type(t3))
+# ---------------------------------------------------------------------------------------
+4011 days, 0:00:00
+<class 'datetime.date'>
+<class 'datetime.date'>
+<class 'datetime.timedelta'>
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-12. 다음의 코드를 살펴봅시다
+[11-3 21:13]
+# ***************************************************************************************
+import datetime
+# t1 = datetime.date(year=2030, month=1, day=1)
+# t2 = datetime.date(year=2040, month=12, day=25)
+
+t1 = datetime.timedelta(weeks=1, days=2, hours=3)
+print(t1)
+t2 = datetime.timedelta(weeks=3, days=3, hours=3)
+print(t2)
+
+t3 = t2 - t1
+
+print(t3)
+print(type(t1))
+print(type(t2))
+print(type(t3))
+# ---------------------------------------------------------------------------------------
+9 days, 3:00:00
+24 days, 3:00:00
+15 days, 0:00:00
+<class 'datetime.timedelta'>
+<class 'datetime.timedelta'>
+<class 'datetime.timedelta'>
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-13. 다음의 코드를 살펴봅시다
+[11-3 24:16]
+# ***************************************************************************************
+import numpy as np
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+
+import pandas as pd
+
+date = pd.date_range('20300101', periods=df.shape[0], freq='15H')
+print(date)
+df1 = df.copy()
+df1['date'] = date
+
+print(df1['date'].dt.month)  # year, day
+# ---------------------------------------------------------------------------------------
+DatetimeIndex(['2030-01-01 00:00:00', '2030-01-01 15:00:00',
+               '2030-01-02 06:00:00', '2030-01-02 21:00:00',
+               '2030-01-03 12:00:00', '2030-01-04 03:00:00',
+               '2030-01-04 18:00:00', '2030-01-05 09:00:00',
+               '2030-01-06 00:00:00', '2030-01-06 15:00:00',
+               ...
+               '2031-07-05 15:00:00', '2031-07-06 06:00:00',
+               '2031-07-06 21:00:00', '2031-07-07 12:00:00',
+               '2031-07-08 03:00:00', '2031-07-08 18:00:00',
+               '2031-07-09 09:00:00', '2031-07-10 00:00:00',
+               '2031-07-10 15:00:00', '2031-07-11 06:00:00'],
+              dtype='datetime64[ns]', length=891, freq='15H')
+0      1
+1      1
+2      1
+3      1
+4      1
+      ..
+886    7
+887    7
+888    7
+889    7
+890    7
+Name: date, Length: 891, dtype: int32
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-14. 다음의 코드를 살펴봅시다
+[11-3 26:32]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+dates = pd.date_range('2030-1-1', periods=6, freq='M')
+print(dates)
+# ---------------------------------------------------------------------------------------
+DatetimeIndex(['2030-01-31', '2030-02-28', '2030-03-31', '2030-04-30',
+               '2030-05-31', '2030-06-30'],
+              dtype='datetime64[ns]', freq='M')
+
+
+
+
+
+# [Python]*******************************************************************************
+해보기 11-15. 다음의 코드를 살펴봅시다
+[11-3 27:44]
+# ***************************************************************************************
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('titanic')
+dates = pd.date_range('2030-01-01', periods=df.shape[0], freq='10H')
+print(dates)
+
+df1 = df.copy()
+df1['date'] = dates
+print(df1['date'].dt.month)
+# ---------------------------------------------------------------------------------------
+DatetimeIndex(['2030-01-01 00:00:00', '2030-01-01 10:00:00',
+               '2030-01-01 20:00:00', '2030-01-02 06:00:00',
+               '2030-01-02 16:00:00', '2030-01-03 02:00:00',
+               '2030-01-03 12:00:00', '2030-01-03 22:00:00',
+               '2030-01-04 08:00:00', '2030-01-04 18:00:00',
+               ...
+               '2031-01-03 02:00:00', '2031-01-03 12:00:00',
+               '2031-01-03 22:00:00', '2031-01-04 08:00:00',
+               '2031-01-04 18:00:00', '2031-01-05 04:00:00',
+               '2031-01-05 14:00:00', '2031-01-06 00:00:00',
+               '2031-01-06 10:00:00', '2031-01-06 20:00:00'],
+              dtype='datetime64[ns]', length=891, freq='10H')
+0      1
+1      1
+2      1
+3      1
+4      1
+      ..
+886    1
+887    1
+888    1
+889    1
+890    1
+Name: date, Length: 891, dtype: int32
