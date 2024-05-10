@@ -1,0 +1,32 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class QuickSort {
+   public QuickSort() {
+   }
+
+   public ArrayList<Integer> sort(ArrayList<Integer> dataList) {
+      if (dataList.size() <= 1) {
+         return dataList;
+      } else {
+         int pivot = (Integer)dataList.get(0);
+         ArrayList<Integer> leftArr = new ArrayList();
+         ArrayList<Integer> rightArr = new ArrayList();
+
+         for(int idx = 1; idx < dataList.size(); ++idx) {
+            if ((Integer)dataList.get(idx) > pivot) {
+               rightArr.add((Integer)dataList.get(idx));
+            } else {
+               leftArr.add((Integer)dataList.get(idx));
+            }
+         }
+
+         ArrayList<Integer> mergeArr = new ArrayList();
+         mergeArr.addAll(this.sort(leftArr));
+         mergeArr.addAll(Arrays.asList(pivot));
+         mergeArr.addAll(this.sort(rightArr));
+         return mergeArr;
+      }
+   }
+}
