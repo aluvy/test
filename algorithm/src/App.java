@@ -17,9 +17,13 @@ public class App {
             }
             System.out.println("--- 정렬 전: " + dataSet);
 
-            // quick sort
-            QuickSort qSort = new QuickSort();
-            System.out.println("--- quick sort(정렬 후): " + qSort.sort(dataSet));
+            // // quick sort
+            // QuickSort qSort = new QuickSort();
+            // System.out.println("--- quick sort(정렬 후): " + qSort.sort(dataSet));
+
+            // Insert sort
+            InsertSort iSort = new InsertSort();
+            System.out.println("--- quick sort(정렬 후): " + iSort.sort(dataSet));
         }
 
     }
