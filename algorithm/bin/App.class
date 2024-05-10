@@ -1,0 +1,43 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+   public App() {
+   }
+
+   public static void main(String[] args) throws Exception {
+      Throwable var1 = null;
+      Object var2 = null;
+
+      try {
+         Scanner sc = new Scanner(System.in);
+
+         try {
+            ArrayList<Integer> dataSet = new ArrayList();
+
+            for(int i = 0; i < 10; ++i) {
+               System.out.println(i + 1 + "\ubc88\uc9f8 \uc22b\uc790\ub97c \uc785\ub825\ud574 \uc8fc\uc138\uc694");
+               dataSet.add(sc.nextInt());
+            }
+
+            System.out.println("--- \uc815\ub82c \uc804: " + dataSet);
+            QuickSort qSort = new QuickSort();
+            System.out.println("--- quick sort(\uc815\ub82c \ud6c4): " + qSort.sort(dataSet));
+         } finally {
+            if (sc != null) {
+               sc.close();
+            }
+
+         }
+      } catch (Throwable var11) {
+         if (var1 == null) {
+            var1 = var11;
+         } else if (var1 != var11) {
+            var1.addSuppressed(var11);
+         }
+
+         throw var1;
+      }
+   }
+}
