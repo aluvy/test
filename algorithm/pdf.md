@@ -70,8 +70,8 @@
 ```
 
 ### 시간복잡도
-https://rninche01.tistory.com/entry/%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-01-%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC
-https://ko.wikipedia.org/wiki/%EC%82%BD%EC%9E%85_%EC%A0%95%EB%A0%AC
+https://rninche01.tistory.com/entry/%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-01-%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC   
+https://ko.wikipedia.org/wiki/%EC%82%BD%EC%9E%85_%EC%A0%95%EB%A0%AC   
 ```
 * 최선의 경우: O(n)
 * 최악의 경우: O(𝑛2)
@@ -79,7 +79,8 @@ https://ko.wikipedia.org/wiki/%EC%82%BD%EC%9E%85_%EC%A0%95%EB%A0%AC
 ```
 
 ### 선택이유
-https://blog.naver.com/PostView.nhn?blogId=chogahui05&logNo=221295864234&parentCategoryNo=&categoryNo=6&viewDate=&isShowPopularPosts=true&from=search
+https://blog.naver.com/PostView.nhn?blogId=chogahui05&logNo=221295864234&parentCategoryNo=&categoryNo=6&viewDate=&isShowPopularPosts=true&from=search   
+https://ko.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/analysis-of-insertion-sort   
 
 ```
 임의의 10개의 숫자를 입력받았을 때
