@@ -1,0 +1,34 @@
+[
+  {
+    "title": "사용여부",
+    "orderSeq": "1",
+    "url": "1111",
+    "reporterName": "",
+    "subTitle": "",
+    "subUrl": "",
+    "mobileTitle": "",
+    "imgUrl": "",
+    "imgDesc": "",
+    "vodUrl": "",
+    "itemIcon": "",
+    "originCode": "0",
+    "serviceTime": "",
+    "contents": "1111 : 사용\r\n0000 : 미사용"
+  },
+  {
+    "title": "",
+    "orderSeq": "2",
+    "url": "",
+    "reporterName": "",
+    "subTitle": "",
+    "subUrl": "",
+    "mobileTitle": "",
+    "imgUrl": "",
+    "imgDesc": "",
+    "vodUrl": "",
+    "itemIcon": "",
+    "originCode": "",
+    "serviceTime": "",
+    "contents": "호우 주의보 : 제주(산지·동부·남부 중산간)"
+  }
+]
